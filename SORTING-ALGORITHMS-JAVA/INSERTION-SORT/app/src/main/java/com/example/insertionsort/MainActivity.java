@@ -42,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
                     int[] myInts_sort = new int[20];
                     MainActivity ob = new MainActivity();
+
+                    //myInts_sort = ob.selection_sort(myInts);
                     myInts_sort = ob.insertion_sort(myInts);
 
                     String result1 = Arrays.toString(myInts_sort);
@@ -69,6 +71,22 @@ public class MainActivity extends AppCompatActivity {
                 j = j - 1;
             }
             arr[j + 1] = key;
+        }
+        return arr;
+    }
+
+    int [] selection_sort(int[] arr)
+    {
+        int n = arr.length;
+        int i,j,temp;
+        for (i=0;i<=n;i++){
+            for (j=i+1;j<=n;j++){
+                if (arr[j]<arr[i]){
+                    temp = arr[j];
+                    arr[j] = arr[i];
+                    arr[i] = temp;
+                }
+            }
         }
         return arr;
     }
