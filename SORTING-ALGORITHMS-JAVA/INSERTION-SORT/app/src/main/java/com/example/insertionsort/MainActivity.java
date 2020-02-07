@@ -43,8 +43,15 @@ public class MainActivity extends AppCompatActivity {
                     int[] myInts_sort = new int[20];
                     MainActivity ob = new MainActivity();
 
-                    //myInts_sort = ob.selection_sort(myInts);
-                    myInts_sort = ob.insertion_sort(myInts);
+
+                    //myInts_sort = ob.insertion_sort(myInts); //okay nani
+                    //myInts_sort = ob.selection_sort(myInts); //okay nani
+                    //myInts_sort = ob.shell_sort(myInts);     //okay nani
+                    //myInts_sort = ob.merge_sort(myInts);
+                    //myInts_sort = ob.quick_sort(myInts);
+                    //myInts_sort = ob.heap_sort(myInts);
+                    //myInts_sort = ob.counting_sort(myInts);
+                    //myInts_sort = ob.radix_sort(myInts);
 
                     String result1 = Arrays.toString(myInts_sort);
 
@@ -63,9 +70,6 @@ public class MainActivity extends AppCompatActivity {
             int key = arr[i];
             int j = i - 1;
 
-            /* Move elements of arr[0..i-1], that are
-               greater than key, to one position ahead
-               of their current position */
             while (j >= 0 && arr[j] > key) {
                 arr[j + 1] = arr[j];
                 j = j - 1;
@@ -78,16 +82,80 @@ public class MainActivity extends AppCompatActivity {
     int [] selection_sort(int[] arr)
     {
         int n = arr.length;
-        int i,j,temp;
-        for (i=0;i<=n;i++){
-            for (j=i+1;j<=n;j++){
-                if (arr[j]<arr[i]){
-                    temp = arr[j];
-                    arr[j] = arr[i];
-                    arr[i] = temp;
-                }
+
+        for (int i = 0; i < n-1; i++)
+        {
+            int min_idx = i;
+            for (int j = i+1; j < n; j++)
+                if (arr[j] < arr[min_idx])
+                    min_idx = j;
+
+            int temp = arr[min_idx];
+            arr[min_idx] = arr[i];
+            arr[i] = temp;
+        }
+
+
+        return arr;
+    }
+
+    int [] shell_sort(int[] arr)
+    {
+        int n = arr.length;
+
+        for (int gap = n / 2; gap > 0; gap /= 2) {
+            for (int i = gap; i < n; i += 1) {
+                int temp = arr[i];
+
+                int j;
+                for (j = i; j >= gap && arr[j - gap] > temp; j -= gap)
+                    arr[j] = arr[j - gap];
+
+                arr[j] = temp;
+
             }
         }
+
+                return arr;
+    }
+
+    int [] merge_sort(int[] arr)
+    {
+        int n = arr.length;
+
+
+        return arr;
+    }
+
+    int [] quick_sort(int[] arr)
+    {
+        int n = arr.length;
+        int i,j,temp;
+
+        return arr;
+    }
+
+    int [] heap_sort(int[] arr)
+    {
+        int n = arr.length;
+        int i,j,temp;
+
+        return arr;
+    }
+
+    int [] counting_sort(int[] arr)
+    {
+        int n = arr.length;
+        int i,j,temp;
+
+        return arr;
+    }
+
+    int [] radix_sort(int[] arr)
+    {
+        int n = arr.length;
+        int i,j,temp;
+
         return arr;
     }
 
